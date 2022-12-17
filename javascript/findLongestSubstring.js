@@ -12,11 +12,11 @@ function findLongestSubstring(str){
     for(let i=0;i<str.length;i++){
         let char = str[i];
         if(strIndex[char]){
-            start = Math.max(start,strIndex[char]+1)
+            start = Math.max(start,strIndex[char])
             //start위치와 strIndex[char]의 위치를 비교하여, strIndex[char]이 start보다 먼저 있는 경우 무시하기 위함
         }
-        longest = Math.max(longest,start-i+1);
-        strIndex[char]=i;
+        longest = Math.max(longest,i-start+1);
+        strIndex[char]=i+1;
     }
     return longest;
   }
